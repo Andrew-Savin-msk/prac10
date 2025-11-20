@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../stores/tip_detail_screen_store.dart';
-import '../models/tip_article_model.dart';
+import 'package:prac10/features/tips/stores/tip_detail_screen_store.dart';
+import 'package:prac10/features/tips/models/tip_article_model.dart';
 
 class TipDetailScreen extends StatelessWidget {
   TipDetailScreen({super.key, required TipArticle article})

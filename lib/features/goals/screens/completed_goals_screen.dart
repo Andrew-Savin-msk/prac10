@@ -3,10 +3,10 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:go_router/go_router.dart';
 import 'package:get_it/get_it.dart';
 
-import '../app_router.dart';
-import '../widgets/goal_card.dart';
-import '../stores/completed_goals/completed_goals_screen_store.dart';
-import '../services/goal_service.dart';
+import 'package:prac10/features/goals/app_router.dart';
+import 'package:prac10/features/goals/widgets/goal_card.dart';
+import 'package:prac10/features/goals/stores/completed_goals/completed_goals_screen_store.dart';
+import 'package:prac10/features/goals/services/goal_service.dart';
 
 class CompletedGoalsScreen extends StatelessWidget {
   CompletedGoalsScreen({super.key})

@@ -1,4 +1,4 @@
-import '../models/tip_article_model.dart';
+import 'package:prac10/features/tips/models/tip_article_model.dart';
 
 class TipsService {
   final List<TipArticle> _articles = [

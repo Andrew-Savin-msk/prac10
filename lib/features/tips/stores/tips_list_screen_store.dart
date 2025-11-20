@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
-import '../models/tip_article_model.dart';
-import '../services/tips_service.dart';
+import 'package:prac10/features/tips/models/tip_article_model.dart';
+import 'package:prac10/features/tips/services/tips_service.dart';
 
 part 'tips_list_screen_store.g.dart';
 

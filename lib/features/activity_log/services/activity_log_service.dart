@@ -1,4 +1,4 @@
-import '../models/log_entry_model.dart';
+import 'package:prac10/features/activity_log/models/log_entry_model.dart';
 
 class ActivityLogService {
   final List<LogEntry> _entries = [];

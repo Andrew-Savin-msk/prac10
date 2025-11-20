@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
-import '../models/log_entry_model.dart';
-import '../services/activity_log_service.dart';
+import 'package:prac10/features/activity_log/models/log_entry_model.dart';
+import 'package:prac10/features/activity_log/services/activity_log_service.dart';
 
 part 'activity_log_screen_store.g.dart';
 

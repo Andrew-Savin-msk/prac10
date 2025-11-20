@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
-import '../../models/achievement_model.dart';
-import '../../services/achievement_service.dart';
+import 'package:prac10/features/achievements/models/achievement_model.dart';
+import 'package:prac10/features/achievements/services/achievement_service.dart';
 
 part 'achievements_screen_store.g.dart';
 

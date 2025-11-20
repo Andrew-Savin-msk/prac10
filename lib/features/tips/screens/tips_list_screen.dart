@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import '../stores/tips_list_screen_store.dart';
-import '../services/tips_service.dart';
-import '../../goals/app_router.dart';
+import 'package:prac10/features/tips/stores/tips_list_screen_store.dart';
+import 'package:prac10/features/tips/services/tips_service.dart';
+import 'package:prac10/features/goals/app_router.dart';
 
 class TipsListScreen extends StatelessWidget {
   TipsListScreen({super.key})

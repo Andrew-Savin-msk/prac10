@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:go_router/go_router.dart';
 import 'package:get_it/get_it.dart';
-import '../stores/registration/registration_screen_store.dart';
-import '../services/account_service.dart';
+import 'package:prac10/features/account/stores/registration/registration_screen_store.dart';
+import 'package:prac10/features/account/services/account_service.dart';
 
 class RegistrationScreen extends StatelessWidget {
   RegistrationScreen({super.key})

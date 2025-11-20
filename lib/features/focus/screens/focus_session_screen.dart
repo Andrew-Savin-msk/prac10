@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import '../stores/focus_session_screen_store.dart';
-import '../services/focus_session_service.dart';
+import 'package:prac10/features/focus/stores/focus_session_screen_store.dart';
+import 'package:prac10/features/focus/services/focus_session_service.dart';
 
 class FocusSessionScreen extends StatelessWidget {
   FocusSessionScreen({super.key})

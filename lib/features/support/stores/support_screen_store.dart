@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
-import '../models/faq_item_model.dart';
-import '../services/support_service.dart';
+import 'package:prac10/features/support/models/faq_item_model.dart';
+import 'package:prac10/features/support/services/support_service.dart';
 
 part 'support_screen_store.g.dart';
 

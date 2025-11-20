@@ -3,9 +3,9 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
-import '../app_router.dart';
-import '../stores/add_goal/add_goal_screen_store.dart';
-import '../services/goal_service.dart';
+import 'package:prac10/features/goals/app_router.dart';
+import 'package:prac10/features/goals/stores/add_goal/add_goal_screen_store.dart';
+import 'package:prac10/features/goals/services/goal_service.dart';
 
 class AddGoalScreen extends StatelessWidget {
   AddGoalScreen({super.key})

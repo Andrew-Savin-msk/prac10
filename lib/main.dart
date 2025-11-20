@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'features/goals/app_router.dart';
-import 'features/goals/services/goal_service.dart';
-import 'features/achievements/services/achievement_service.dart';
-import 'features/account/services/account_service.dart';
-import 'features/activity_log/services/activity_log_service.dart';
-import 'features/focus/services/focus_session_service.dart';
-import 'features/tips/services/tips_service.dart';
-import 'features/support/services/support_service.dart';
+import 'package:prac10/features/goals/app_router.dart';
+import 'package:prac10/features/goals/services/goal_service.dart';
+import 'package:prac10/features/achievements/services/achievement_service.dart';
+import 'package:prac10/features/account/services/account_service.dart';
+import 'package:prac10/features/activity_log/services/activity_log_service.dart';
+import 'package:prac10/features/focus/services/focus_session_service.dart';
+import 'package:prac10/features/tips/services/tips_service.dart';
+import 'package:prac10/features/support/services/support_service.dart';
 
 void main() {
   GetIt.I.registerLazySingleton<AchievementService>(() => AchievementService());

@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
-import '../../services/account_service.dart';
-import '../../models/user_account_model.dart';
+import 'package:prac10/features/account/services/account_service.dart';
+import 'package:prac10/features/account/models/user_account_model.dart';
 
 part 'profile_screen_store.g.dart';
 

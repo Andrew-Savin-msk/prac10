@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import '../stores/feedback_screen_store.dart';
-import '../services/support_service.dart';
+import 'package:prac10/features/support/stores/feedback_screen_store.dart';
+import 'package:prac10/features/support/services/support_service.dart';
 
 class FeedbackScreen extends StatelessWidget {
   FeedbackScreen({super.key})

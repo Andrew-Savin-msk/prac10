@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import '../../services/account_service.dart';
+import 'package:prac10/features/account/services/account_service.dart';
 
 part 'registration_screen_store.g.dart';
 

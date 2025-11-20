@@ -1,9 +1,9 @@
 import 'package:go_router/go_router.dart';
-import 'models/goal_model.dart';
-import 'screens/goals_list_screen.dart';
-import 'screens/add_goal_screen.dart';
-import 'screens/completed_goals_screen.dart';
-import 'screens/goal_detail_screen.dart';
+import 'package:prac10/features/goals/models/goal_model.dart';
+import 'package:prac10/features/goals/screens/goals_list_screen.dart';
+import 'package:prac10/features/goals/screens/add_goal_screen.dart';
+import 'package:prac10/features/goals/screens/completed_goals_screen.dart';
+import 'package:prac10/features/goals/screens/goal_detail_screen.dart';
 import 'package:prac10/features/achievements/screens/achievements_screen.dart';
 import 'package:prac10/features/account/screens/login_screen.dart';
 import 'package:prac10/features/account/screens/registration_screen.dart';

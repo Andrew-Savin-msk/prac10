@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/goal_model.dart';
+import 'package:prac10/features/goals/models/goal_model.dart';
 
 class GoalCard extends StatelessWidget {
   final Goal goal;

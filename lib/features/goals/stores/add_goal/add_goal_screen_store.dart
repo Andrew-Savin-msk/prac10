@@ -1,7 +1,7 @@
 import 'package:mobx/mobx.dart';
 
-import '../../models/goal_model.dart';
-import '../../services/goal_service.dart';
+import 'package:prac10/features/goals/models/goal_model.dart';
+import 'package:prac10/features/goals/services/goal_service.dart';
 
 part 'add_goal_screen_store.g.dart';
 

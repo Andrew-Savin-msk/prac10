@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import '../stores/activity_log_screen_store.dart';
-import '../services/activity_log_service.dart';
+import 'package:prac10/features/activity_log/stores/activity_log_screen_store.dart';
+import 'package:prac10/features/activity_log/services/activity_log_service.dart';
 
 class ActivityLogScreen extends StatelessWidget {
   ActivityLogScreen({super.key})

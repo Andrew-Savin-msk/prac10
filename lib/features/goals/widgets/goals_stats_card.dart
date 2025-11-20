@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import '../services/goal_service.dart';
-import 'progress_text.dart';
+import 'package:prac10/features/goals/services/goal_service.dart';
+import 'package:prac10/features/goals/widgets/progress_text.dart';
 
 class GoalsStatsCard extends StatelessWidget {
   const GoalsStatsCard({super.key});

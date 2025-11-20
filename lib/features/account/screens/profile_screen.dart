@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:go_router/go_router.dart';
 import 'package:get_it/get_it.dart';
-import '../stores/profile_screen/profile_screen_store.dart';
-import '../services/account_service.dart';
-import '../../goals/app_router.dart';
+import 'package:prac10/features/account/stores/profile_screen/profile_screen_store.dart';
+import 'package:prac10/features/account/services/account_service.dart';
+import 'package:prac10/features/goals/app_router.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key})

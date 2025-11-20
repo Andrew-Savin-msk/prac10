@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:mobx/mobx.dart';
-import '../models/focus_session_model.dart';
-import '../services/focus_session_service.dart';
+import 'package:prac10/features/focus/models/focus_session_model.dart';
+import 'package:prac10/features/focus/services/focus_session_service.dart';
 
 part 'focus_session_screen_store.g.dart';
 

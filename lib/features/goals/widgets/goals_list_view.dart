@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/goal_model.dart';
-import 'goal_card.dart';
+import 'package:prac10/features/goals/models/goal_model.dart';
+import 'package:prac10/features/goals/widgets/goal_card.dart';
 
 class GoalsListView extends StatelessWidget {
   final List<Goal> goals;

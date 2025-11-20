@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import '../services/support_service.dart';
+import 'package:prac10/features/support/services/support_service.dart';
 
 part 'feedback_screen_store.g.dart';
 

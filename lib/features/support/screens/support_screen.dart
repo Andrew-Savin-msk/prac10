@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import '../stores/support_screen_store.dart';
-import '../services/support_service.dart';
-import '../models/faq_item_model.dart';
-import '../../goals/app_router.dart';
+import 'package:prac10/features/support/stores/support_screen_store.dart';
+import 'package:prac10/features/support/services/support_service.dart';
+import 'package:prac10/features/support/models/faq_item_model.dart';
+import 'package:prac10/features/goals/app_router.dart';
 
 class SupportScreen extends StatelessWidget {
   SupportScreen({super.key})

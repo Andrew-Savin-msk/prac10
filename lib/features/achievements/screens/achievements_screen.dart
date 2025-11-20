@@ -3,9 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get_it/get_it.dart';
-import '../stores/achievements_screen/achievements_screen_store.dart';
-import '../services/achievement_service.dart';
-import '../models/achievement_model.dart';
+import 'package:prac10/features/achievements/stores/achievements_screen/achievements_screen_store.dart';
+import 'package:prac10/features/achievements/services/achievement_service.dart';
+import 'package:prac10/features/achievements/models/achievement_model.dart';
 
 class AchievementsScreen extends StatelessWidget {
   AchievementsScreen({super.key})

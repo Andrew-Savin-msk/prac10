@@ -3,12 +3,12 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
-import '../app_router.dart';
-import '../widgets/goals_stats_card.dart';
-import '../widgets/goals_search_bar.dart';
-import '../widgets/goals_list_view.dart';
-import '../stores/goals_list/goals_list_screen_store.dart';
-import '../services/goal_service.dart';
+import 'package:prac10/features/goals/app_router.dart';
+import 'package:prac10/features/goals/widgets/goals_stats_card.dart';
+import 'package:prac10/features/goals/widgets/goals_search_bar.dart';
+import 'package:prac10/features/goals/widgets/goals_list_view.dart';
+import 'package:prac10/features/goals/stores/goals_list/goals_list_screen_store.dart';
+import 'package:prac10/features/goals/services/goal_service.dart';
 
 
 class GoalsListScreen extends StatelessWidget {

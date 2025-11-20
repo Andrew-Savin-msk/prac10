@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import '../models/achievement_model.dart';
-import '../../goals/models/goal_model.dart';
+import 'package:prac10/features/achievements/models/achievement_model.dart';
+import 'package:prac10/features/goals/models/goal_model.dart';
 import 'package:prac10/features/activity_log/services/activity_log_service.dart';
 
 class AchievementService {

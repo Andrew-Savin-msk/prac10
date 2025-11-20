@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import '../models/faq_item_model.dart';
-import '../models/feedback_message_model.dart';
+import 'package:prac10/features/support/models/faq_item_model.dart';
+import 'package:prac10/features/support/models/feedback_message_model.dart';
 import 'package:prac10/features/activity_log/services/activity_log_service.dart';
 
 class SupportService {

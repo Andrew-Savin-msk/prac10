@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import '../models/focus_session_model.dart';
+import 'package:prac10/features/focus/models/focus_session_model.dart';
 import 'package:prac10/features/activity_log/services/activity_log_service.dart';
 
 class FocusSessionService {
