@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:get_it/get_it.dart';
 import '../stores/achievements_screen/achievements_screen_store.dart';
+import '../services/achievement_service.dart';
+import '../models/achievement_model.dart';
 
 class AchievementsScreen extends StatelessWidget {
-  AchievementsScreen({super.key}) : store = AchievementsScreenStore();
+  AchievementsScreen({super.key})
+      : store = AchievementsScreenStore(GetIt.I<AchievementService>());
 
   final AchievementsScreenStore store;
 
@@ -19,42 +23,34 @@ class AchievementsScreen extends StatelessWidget {
       body: Observer(
         builder: (_) {
           final achievements = store.achievements;
+          final unlockedCount = store.unlockedCount;
+          final totalCount = achievements.length;
 
           if (achievements.isEmpty) {
             return const _EmptyState();
           }
 
-          return ListView.separated(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            itemCount: achievements.length,
-            separatorBuilder: (_, __) => const Divider(height: 1),
-            itemBuilder: (context, i) {
-              final a = achievements[i];
-              return ListTile(
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
+          return Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'Открыто $unlockedCount из $totalCount',
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
-                leading: _Thumb(url: a.imageUrl),
-                title: Text(
-                  a.title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+              ),
+              Expanded(
+                child: ListView.separated(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  itemCount: achievements.length,
+                  separatorBuilder: (_, __) => const Divider(height: 1),
+                  itemBuilder: (context, i) {
+                    final a = achievements[i];
+                    return _AchievementTile(achievement: a);
+                  },
                 ),
-                subtitle: Text(
-                  a.description,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                trailing: Icon(
-                  a.isUnlocked ? Icons.verified : Icons.lock_outline,
-                  color: a.isUnlocked ? Colors.green : null,
-                ),
-                onTap: () {
-                  // Можно добавить логику открытия деталей ачивки
-                },
-              );
-            },
+              ),
+            ],
           );
         },
       ),
@@ -62,29 +58,98 @@ class AchievementsScreen extends StatelessWidget {
   }
 }
 
+class _AchievementTile extends StatelessWidget {
+  final Achievement achievement;
+  const _AchievementTile({required this.achievement});
+
+  @override
+  Widget build(BuildContext context) {
+    final isUnlocked = achievement.isUnlocked;
+    return Opacity(
+      opacity: isUnlocked ? 1.0 : 0.5,
+      child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 6,
+        ),
+        leading: _Thumb(url: achievement.imageUrl, isUnlocked: isUnlocked),
+        title: Text(
+          achievement.title,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontWeight: isUnlocked ? FontWeight.bold : FontWeight.normal,
+          ),
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              achievement.description,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            if (!isUnlocked)
+              const Padding(
+                padding: EdgeInsets.only(top: 4.0),
+                child: Text(
+                  'Пока не открыто',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+          ],
+        ),
+        trailing: Icon(
+          isUnlocked ? Icons.verified : Icons.lock_outline,
+          color: isUnlocked ? Colors.green : Colors.grey,
+        ),
+      ),
+    );
+  }
+}
+
 class _Thumb extends StatelessWidget {
   final String url;
-  const _Thumb({required this.url});
+  final bool isUnlocked;
+  const _Thumb({required this.url, required this.isUnlocked});
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(8),
-      child: CachedNetworkImage(
-        imageUrl: url,
-        width: 72,
-        height: 72,
-        fit: BoxFit.cover,
-        placeholder: (c, _) => const SizedBox(
-          width: 72,
-          height: 72,
-          child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
-        ),
-        errorWidget: (c, _, __) => const SizedBox(
-          width: 72,
-          height: 72,
-          child: Icon(Icons.broken_image),
-        ),
+      child: Stack(
+        children: [
+          CachedNetworkImage(
+            imageUrl: url,
+            width: 72,
+            height: 72,
+            fit: BoxFit.cover,
+            placeholder: (c, _) => const SizedBox(
+              width: 72,
+              height: 72,
+              child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+            ),
+            errorWidget: (c, _, __) => const SizedBox(
+              width: 72,
+              height: 72,
+              child: Icon(Icons.broken_image),
+            ),
+          ),
+          if (!isUnlocked)
+            Container(
+              width: 72,
+              height: 72,
+              color: Colors.black.withValues(alpha: 0.3),
+              child: const Icon(
+                Icons.lock,
+                color: Colors.white,
+                size: 24,
+              ),
+            ),
+        ],
       ),
     );
   }

@@ -1,6 +1,9 @@
 import 'package:mobx/mobx.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../models/goal_model.dart';
+import '../../services/goal_service.dart';
+import 'package:prac10/features/achievements/services/achievement_service.dart';
 
 part 'goal_detail_screen_store.g.dart';
 
@@ -9,6 +12,9 @@ class GoalDetailScreenStore = _GoalDetailScreenStore
 
 abstract class _GoalDetailScreenStore with Store {
   _GoalDetailScreenStore();
+
+  final GoalService _goalService = GetIt.I<GoalService>();
+  final AchievementService _achievementService = GetIt.I<AchievementService>();
 
   @observable
   Goal? currentGoal;
@@ -43,12 +49,27 @@ abstract class _GoalDetailScreenStore with Store {
   void toggleSubtask(int index, bool done) {
     if (index < 0 || index >= subtasks.length) return;
 
+    final goal = currentGoal;
+    if (goal == null) return;
+
+    final wasCompleted = goal.isCompleted;
+
     final old = subtasks[index];
     final updated = Subtask(title: old.title, done: done);
 
     subtasks[index] = updated;
 
     _syncBackToGoal();
+
+    final nowCompleted = goal.isCompleted;
+
+    // Проверяем, перешла ли цель в состояние "выполнена"
+    if (!wasCompleted && nowCompleted) {
+      _achievementService.onGoalCompleted(_goalService.goals);
+    }
+
+    // Обновляем ачивки при любом изменении прогресса
+    _achievementService.onGoalUpdated(_goalService.goals);
   }
 
   void _syncBackToGoal() {

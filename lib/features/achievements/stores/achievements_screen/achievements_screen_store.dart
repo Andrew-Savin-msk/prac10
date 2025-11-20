@@ -8,11 +8,11 @@ class AchievementsScreenStore = _AchievementsScreenStore
     with _$AchievementsScreenStore;
 
 abstract class _AchievementsScreenStore with Store {
-  _AchievementsScreenStore() {
-    _loadAchievements();
+  _AchievementsScreenStore(this._service) {
+    refresh();
   }
 
-  final AchievementService _service = AchievementService();
+  final AchievementService _service;
 
   @observable
   ObservableList<Achievement> achievements = ObservableList<Achievement>();
@@ -24,11 +24,8 @@ abstract class _AchievementsScreenStore with Store {
   int get unlockedCount => achievements.where((a) => a.isUnlocked).length;
 
   @action
-  void _loadAchievements() {
-    achievements = ObservableList.of(_service.getAchievements());
+  void refresh() {
+    achievements = ObservableList.of(_service.achievements);
   }
-
-  @action
-  void refresh() => _loadAchievements();
 }
 

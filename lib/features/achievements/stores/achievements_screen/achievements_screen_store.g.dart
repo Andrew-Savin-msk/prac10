@@ -48,18 +48,6 @@ mixin _$AchievementsScreenStore on _AchievementsScreenStore, Store {
   );
 
   @override
-  void _loadAchievements() {
-    final _$actionInfo = _$_AchievementsScreenStoreActionController.startAction(
-      name: '_AchievementsScreenStore._loadAchievements',
-    );
-    try {
-      return super._loadAchievements();
-    } finally {
-      _$_AchievementsScreenStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   void refresh() {
     final _$actionInfo = _$_AchievementsScreenStoreActionController.startAction(
       name: '_AchievementsScreenStore.refresh',
