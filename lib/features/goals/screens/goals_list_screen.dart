@@ -29,8 +29,8 @@ class GoalsListScreen extends StatelessWidget {
     context.push(Routes.completed);
   }
 
-  void _openProfile(BuildContext context) {
-    context.push(Routes.profile);
+  void _openAchievements(BuildContext context) {
+    context.push(Routes.achievements);
   }
 
   void _deleteGoal(BuildContext context, int index) {
@@ -68,9 +68,9 @@ class GoalsListScreen extends StatelessWidget {
             onPressed: () => _openCompleted(context),
           ),
           IconButton(
-            tooltip: 'Профиль',
-            icon: const Icon(Icons.person),
-            onPressed: () => _openProfile(context),
+            tooltip: 'Ачивки',
+            icon: const Icon(Icons.emoji_events),
+            onPressed: () => _openAchievements(context),
           ),
         ],
       ),

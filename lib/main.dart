@@ -5,7 +5,6 @@ import 'features/goals/services/goal_service.dart';
 import 'features/goals/stores/goal_details/goal_detail_screen_store.dart';
 import 'features/goals/stores/goals_list/goals_list_screen_store.dart';
 import 'features/goals/stores/add_goal/add_goal_screen_store.dart';
-import 'features/goals/stores/profile/profile_screen_store.dart';
 import 'features/goals/stores/completed_goals/completed_goals_screen_store.dart';
 
 void main() {
@@ -14,7 +13,6 @@ void main() {
   GetIt.I.registerSingleton<CompletedGoalsScreenStore>(CompletedGoalsScreenStore());
   GetIt.I.registerLazySingleton<GoalsListScreenStore>(() => GoalsListScreenStore());
   GetIt.I.registerLazySingleton<AddGoalScreenStore>(() => AddGoalScreenStore());
-  GetIt.I.registerSingleton<ProfileScreenStore>(ProfileScreenStore());
   runApp(const MyApp());
 }
 

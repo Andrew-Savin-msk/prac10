@@ -1,36 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:get_it/get_it.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import '../stores/profile/profile_screen_store.dart';
+import '../stores/achievements_screen/achievements_screen_store.dart';
 
+class AchievementsScreen extends StatelessWidget {
+  AchievementsScreen({super.key}) : store = AchievementsScreenStore();
 
-class Achievement {
-  final String title;
-  final String description;
-  final String imageUrl;
-  final bool isUnlocked;
-
-  const Achievement({
-    required this.title,
-    required this.description,
-    required this.imageUrl,
-    this.isUnlocked = false,
-  });
-}
-
-class ProfileScreen extends StatelessWidget {
-  ProfileScreen({super.key})
-      : store = GetIt.I<ProfileScreenStore>();
-
-  final ProfileScreenStore store;
+  final AchievementsScreenStore store;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Профиль'),
+        title: const Text('Ачивки'),
         leading: BackButton(onPressed: () => context.pop()),
       ),
       body: Observer(
@@ -68,6 +51,7 @@ class ProfileScreen extends StatelessWidget {
                   color: a.isUnlocked ? Colors.green : null,
                 ),
                 onTap: () {
+                  // Можно добавить логику открытия деталей ачивки
                 },
               );
             },
@@ -77,7 +61,6 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
 
 class _Thumb extends StatelessWidget {
   final String url;
@@ -120,3 +103,4 @@ class _EmptyState extends StatelessWidget {
     );
   }
 }
+

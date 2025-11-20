@@ -1,16 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'models/goal_model.dart';
 import 'screens/goals_list_screen.dart';
 import 'screens/add_goal_screen.dart';
-import 'screens/profile_screen.dart';
 import 'screens/completed_goals_screen.dart';
 import 'screens/goal_detail_screen.dart';
+import 'package:prac10/features/achievements/screens/achievements_screen.dart';
 
 final class Routes {
   static const goalsList = '/';
   static const addGoal = '/add-goal';
-  static const profile = '/profile';
+  static const achievements = '/achievements';
   static const completed = '/completed';
   static const goalDetail = '/goal-detail';
 }
@@ -30,9 +29,9 @@ GoRouter buildRouter() {
         builder: (context, state) => AddGoalScreen(),
       ),
       GoRoute(
-        path: Routes.profile,
-        name: 'profile',
-        builder: (context, state) => ProfileScreen(),
+        path: Routes.achievements,
+        name: 'achievements',
+        builder: (context, state) => AchievementsScreen(),
       ),
       GoRoute(
         path: Routes.completed,
