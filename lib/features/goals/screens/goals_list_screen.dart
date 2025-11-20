@@ -41,6 +41,10 @@ class GoalsListScreen extends StatelessWidget {
     context.push(Routes.activityLog);
   }
 
+  void _openFocusSessions(BuildContext context) {
+    context.push(Routes.focusSessions);
+  }
+
   void _deleteGoal(BuildContext context, int index) {
     showDialog(
       context: context,
@@ -70,6 +74,11 @@ class GoalsListScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Менеджер целей'),
         actions: [
+          IconButton(
+            tooltip: 'Фокус-сессии',
+            icon: const Icon(Icons.timer),
+            onPressed: () => _openFocusSessions(context),
+          ),
           IconButton(
             tooltip: 'Журнал действий',
             icon: const Icon(Icons.history),
