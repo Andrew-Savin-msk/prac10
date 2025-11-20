@@ -118,7 +118,7 @@ class _EmptyCompletedState extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Отметьте все подзадачи внутри цели, и она попадёт сюда автоматически.',
+              'Отметьте все подзадачи внутри цели, и она попадёт сюда автоматически',
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
