@@ -14,6 +14,9 @@ import 'package:prac10/features/focus/screens/focus_session_screen.dart';
 import 'package:prac10/features/tips/screens/tips_list_screen.dart';
 import 'package:prac10/features/tips/screens/tip_detail_screen.dart';
 import 'package:prac10/features/tips/models/tip_article_model.dart';
+import 'package:prac10/features/support/screens/support_screen.dart';
+import 'package:prac10/features/support/screens/about_screen.dart';
+import 'package:prac10/features/support/screens/feedback_screen.dart';
 
 final class Routes {
   static const goalsList = '/';
@@ -29,6 +32,9 @@ final class Routes {
   static const focusSessions = '/focus-sessions';
   static const tips = '/tips';
   static const tipDetail = '/tips/detail';
+  static const support = '/support';
+  static const about = '/support/about';
+  static const feedback = '/support/feedback';
 }
 
 GoRouter buildRouter() {
@@ -105,6 +111,21 @@ GoRouter buildRouter() {
           final article = state.extra as TipArticle;
           return TipDetailScreen(article: article);
         },
+      ),
+      GoRoute(
+        path: Routes.support,
+        name: 'support',
+        builder: (context, state) => SupportScreen(),
+      ),
+      GoRoute(
+        path: Routes.about,
+        name: 'about',
+        builder: (context, state) => const AboutScreen(),
+      ),
+      GoRoute(
+        path: Routes.feedback,
+        name: 'feedback',
+        builder: (context, state) => FeedbackScreen(),
       ),
     ],
   );

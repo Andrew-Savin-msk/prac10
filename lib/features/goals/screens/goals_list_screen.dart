@@ -49,6 +49,10 @@ class GoalsListScreen extends StatelessWidget {
     context.push(Routes.tips);
   }
 
+  void _openSupport(BuildContext context) {
+    context.push(Routes.support);
+  }
+
   void _deleteGoal(BuildContext context, int index) {
     showDialog(
       context: context,
@@ -78,6 +82,11 @@ class GoalsListScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Менеджер целей'),
         actions: [
+          IconButton(
+            tooltip: 'Поддержка',
+            icon: const Icon(Icons.help_outline),
+            onPressed: () => _openSupport(context),
+          ),
           IconButton(
             tooltip: 'Советы и статьи',
             icon: const Icon(Icons.menu_book),
