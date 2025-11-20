@@ -6,11 +6,11 @@ import 'package:get_it/get_it.dart';
 import '../app_router.dart';
 import '../widgets/goal_card.dart';
 import '../stores/completed_goals/completed_goals_screen_store.dart';
-import 'goal_detail_screen.dart';
+import '../services/goal_service.dart';
 
 class CompletedGoalsScreen extends StatelessWidget {
   CompletedGoalsScreen({super.key})
-      : store = GetIt.I<CompletedGoalsScreenStore>();
+      : store = CompletedGoalsScreenStore(GetIt.I<GoalService>());
 
   final CompletedGoalsScreenStore store;
 

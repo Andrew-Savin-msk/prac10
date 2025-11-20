@@ -1,5 +1,4 @@
 import 'package:mobx/mobx.dart';
-import 'package:get_it/get_it.dart';
 
 import '../../models/goal_model.dart';
 import '../../services/goal_service.dart';
@@ -10,11 +9,11 @@ class GoalsListScreenStore = _GoalsListScreenStore
     with _$GoalsListScreenStore;
 
 abstract class _GoalsListScreenStore with Store {
-  _GoalsListScreenStore() {
+  _GoalsListScreenStore(this._goalService) {
     refresh();
   }
 
-  final GoalService _goalService = GetIt.I<GoalService>();
+  final GoalService _goalService;
 
   @observable
   String searchQuery = '';

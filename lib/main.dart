@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'features/goals/app_router.dart';
 import 'features/goals/services/goal_service.dart';
-import 'features/goals/stores/goal_details/goal_detail_screen_store.dart';
-import 'features/goals/stores/goals_list/goals_list_screen_store.dart';
-import 'features/goals/stores/add_goal/add_goal_screen_store.dart';
-import 'features/goals/stores/completed_goals/completed_goals_screen_store.dart';
 import 'features/achievements/services/achievement_service.dart';
 import 'features/account/services/account_service.dart';
 import 'features/activity_log/services/activity_log_service.dart';
@@ -23,10 +19,6 @@ void main() {
     () => SupportService(),
   );
   GetIt.I.registerSingleton<GoalService>(GoalService());
-  GetIt.I.registerSingleton<GoalDetailScreenStore>(GoalDetailScreenStore());
-  GetIt.I.registerSingleton<CompletedGoalsScreenStore>(CompletedGoalsScreenStore());
-  GetIt.I.registerLazySingleton<GoalsListScreenStore>(() => GoalsListScreenStore());
-  GetIt.I.registerLazySingleton<AddGoalScreenStore>(() => AddGoalScreenStore());
   runApp(const MyApp());
 }
 

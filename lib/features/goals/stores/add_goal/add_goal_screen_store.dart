@@ -1,5 +1,4 @@
 import 'package:mobx/mobx.dart';
-import 'package:get_it/get_it.dart';
 
 import '../../models/goal_model.dart';
 import '../../services/goal_service.dart';
@@ -9,7 +8,9 @@ part 'add_goal_screen_store.g.dart';
 class AddGoalScreenStore = _AddGoalScreenStore with _$AddGoalScreenStore;
 
 abstract class _AddGoalScreenStore with Store {
-  final GoalService _goalService = GetIt.I<GoalService>();
+  _AddGoalScreenStore(this._goalService);
+
+  final GoalService _goalService;
 
   @observable
   String title = '';

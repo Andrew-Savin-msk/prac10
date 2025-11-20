@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
+import 'package:get_it/get_it.dart';
 
 import '../models/goal_model.dart';
 import '../widgets/progress_text.dart';
 import '../stores/goal_details/goal_detail_screen_store.dart';
+import '../services/goal_service.dart';
+import 'package:prac10/features/achievements/services/achievement_service.dart';
+import 'package:prac10/features/activity_log/services/activity_log_service.dart';
 
 class GoalDetailScreen extends StatelessWidget {
   GoalDetailScreen({super.key, required this.goal})
       : _subtaskController = TextEditingController(),
-        store = GetIt.I<GoalDetailScreenStore>() {
+        store = GoalDetailScreenStore(
+          GetIt.I<GoalService>(),
+          GetIt.I<AchievementService>(),
+          GetIt.I<ActivityLogService>(),
+        ) {
     store.attachGoal(goal);
   }
 

@@ -5,10 +5,11 @@ import 'package:go_router/go_router.dart';
 
 import '../app_router.dart';
 import '../stores/add_goal/add_goal_screen_store.dart';
+import '../services/goal_service.dart';
 
 class AddGoalScreen extends StatelessWidget {
   AddGoalScreen({super.key})
-      : store = GetIt.I<AddGoalScreenStore>(),
+      : store = AddGoalScreenStore(GetIt.I<GoalService>()),
         _formKey = GlobalKey<FormState>() {
     store.clear();
   }

@@ -1,5 +1,4 @@
 import 'package:mobx/mobx.dart';
-import 'package:get_it/get_it.dart';
 
 import '../../models/goal_model.dart';
 import '../../services/goal_service.dart';
@@ -12,11 +11,15 @@ class GoalDetailScreenStore = _GoalDetailScreenStore
     with _$GoalDetailScreenStore;
 
 abstract class _GoalDetailScreenStore with Store {
-  _GoalDetailScreenStore();
+  _GoalDetailScreenStore(
+    this._goalService,
+    this._achievementService,
+    this._logService,
+  );
 
-  final GoalService _goalService = GetIt.I<GoalService>();
-  final AchievementService _achievementService = GetIt.I<AchievementService>();
-  final ActivityLogService _logService = GetIt.I<ActivityLogService>();
+  final GoalService _goalService;
+  final AchievementService _achievementService;
+  final ActivityLogService _logService;
 
   @observable
   Goal? currentGoal;

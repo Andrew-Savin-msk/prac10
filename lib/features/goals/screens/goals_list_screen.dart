@@ -8,11 +8,12 @@ import '../widgets/goals_stats_card.dart';
 import '../widgets/goals_search_bar.dart';
 import '../widgets/goals_list_view.dart';
 import '../stores/goals_list/goals_list_screen_store.dart';
+import '../services/goal_service.dart';
 
 
 class GoalsListScreen extends StatelessWidget {
   GoalsListScreen({super.key})
-      : store = GetIt.I<GoalsListScreenStore>(),
+      : store = GoalsListScreenStore(GetIt.I<GoalService>()),
         _searchController = TextEditingController() {
     store.setSearchQuery('');
     store.refresh();
