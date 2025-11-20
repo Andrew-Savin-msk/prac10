@@ -1,4 +1,6 @@
+import 'package:get_it/get_it.dart';
 import '../models/user_account_model.dart';
+import 'package:prac10/features/activity_log/services/activity_log_service.dart';
 
 class AccountService {
   UserAccount? _currentUser;
@@ -6,6 +8,8 @@ class AccountService {
 
   UserAccount? get currentUser => _currentUser;
   bool get isLoggedIn => _currentUser != null;
+
+  ActivityLogService get _logService => GetIt.I<ActivityLogService>();
 
   UserAccount register({
     required String name,
@@ -26,6 +30,7 @@ class AccountService {
 
     _registeredUsers.add(user);
     _currentUser = user;
+    _logService.logAuthLogin(email);
     return user;
   }
 
@@ -38,10 +43,12 @@ class AccountService {
       orElse: () => throw Exception('Неверный email или пароль'),
     );
     _currentUser = user;
+    _logService.logAuthLogin(email);
   }
 
   void logout() {
     _currentUser = null;
+    _logService.logAuthLogout();
   }
 
   void updateProfile({
@@ -55,6 +62,7 @@ class AccountService {
       ..name = name
       ..email = email
       ..avatarUrl = avatarUrl;
+    _logService.logProfileUpdated(name, email);
   }
 }
 

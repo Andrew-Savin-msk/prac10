@@ -9,6 +9,7 @@ import 'package:prac10/features/account/screens/login_screen.dart';
 import 'package:prac10/features/account/screens/registration_screen.dart';
 import 'package:prac10/features/account/screens/profile_screen.dart';
 import 'package:prac10/features/account/screens/edit_profile_screen.dart';
+import 'package:prac10/features/activity_log/screens/activity_log_screen.dart';
 
 final class Routes {
   static const goalsList = '/';
@@ -20,6 +21,7 @@ final class Routes {
   static const register = '/register';
   static const profile = '/profile';
   static const editProfile = '/edit-profile';
+  static const activityLog = '/activity-log';
 }
 
 GoRouter buildRouter() {
@@ -73,6 +75,11 @@ GoRouter buildRouter() {
         path: Routes.editProfile,
         name: 'editProfile',
         builder: (context, state) => EditProfileScreen(),
+      ),
+      GoRoute(
+        path: Routes.activityLog,
+        name: 'activityLog',
+        builder: (context, state) => ActivityLogScreen(),
       ),
     ],
   );

@@ -1,5 +1,7 @@
+import 'package:get_it/get_it.dart';
 import '../models/achievement_model.dart';
 import '../../goals/models/goal_model.dart';
+import 'package:prac10/features/activity_log/services/activity_log_service.dart';
 
 class AchievementService {
   final List<Achievement> _achievements = [
@@ -42,6 +44,8 @@ class AchievementService {
 
   List<Achievement> get achievements => List.unmodifiable(_achievements);
 
+  ActivityLogService get _logService => GetIt.I<ActivityLogService>();
+
   void onGoalCreated(List<Goal> allGoals) {
     _unlockIf('first_goal', () => allGoals.isNotEmpty);
     _unlockIf('five_goals', () => allGoals.length >= 5);
@@ -65,6 +69,7 @@ class AchievementService {
       );
       if (!achievement.isUnlocked && condition()) {
         achievement.isUnlocked = true;
+        _logService.logAchievementUnlocked(achievement.title);
       }
     } catch (e) {
     }

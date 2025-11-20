@@ -8,10 +8,12 @@ import 'features/goals/stores/add_goal/add_goal_screen_store.dart';
 import 'features/goals/stores/completed_goals/completed_goals_screen_store.dart';
 import 'features/achievements/services/achievement_service.dart';
 import 'features/account/services/account_service.dart';
+import 'features/activity_log/services/activity_log_service.dart';
 
 void main() {
   GetIt.I.registerLazySingleton<AchievementService>(() => AchievementService());
   GetIt.I.registerLazySingleton<AccountService>(() => AccountService());
+  GetIt.I.registerLazySingleton<ActivityLogService>(() => ActivityLogService());
   GetIt.I.registerSingleton<GoalService>(GoalService());
   GetIt.I.registerSingleton<GoalDetailScreenStore>(GoalDetailScreenStore());
   GetIt.I.registerSingleton<CompletedGoalsScreenStore>(CompletedGoalsScreenStore());

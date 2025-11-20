@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import '../../models/goal_model.dart';
 import '../../services/goal_service.dart';
 import 'package:prac10/features/achievements/services/achievement_service.dart';
+import 'package:prac10/features/activity_log/services/activity_log_service.dart';
 
 part 'goal_detail_screen_store.g.dart';
 
@@ -15,6 +16,7 @@ abstract class _GoalDetailScreenStore with Store {
 
   final GoalService _goalService = GetIt.I<GoalService>();
   final AchievementService _achievementService = GetIt.I<AchievementService>();
+  final ActivityLogService _logService = GetIt.I<ActivityLogService>();
 
   @observable
   Goal? currentGoal;
@@ -66,6 +68,7 @@ abstract class _GoalDetailScreenStore with Store {
     // Проверяем, перешла ли цель в состояние "выполнена"
     if (!wasCompleted && nowCompleted) {
       _achievementService.onGoalCompleted(_goalService.goals);
+      _logService.logGoalCompleted(goal.title);
     }
 
     // Обновляем ачивки при любом изменении прогресса
