@@ -10,12 +10,14 @@ import 'features/achievements/services/achievement_service.dart';
 import 'features/account/services/account_service.dart';
 import 'features/activity_log/services/activity_log_service.dart';
 import 'features/focus/services/focus_session_service.dart';
+import 'features/tips/services/tips_service.dart';
 
 void main() {
   GetIt.I.registerLazySingleton<AchievementService>(() => AchievementService());
   GetIt.I.registerLazySingleton<AccountService>(() => AccountService());
   GetIt.I.registerLazySingleton<ActivityLogService>(() => ActivityLogService());
   GetIt.I.registerLazySingleton<FocusSessionService>(() => FocusSessionService());
+  GetIt.I.registerLazySingleton<TipsService>(() => TipsService());
   GetIt.I.registerSingleton<GoalService>(GoalService());
   GetIt.I.registerSingleton<GoalDetailScreenStore>(GoalDetailScreenStore());
   GetIt.I.registerSingleton<CompletedGoalsScreenStore>(CompletedGoalsScreenStore());
