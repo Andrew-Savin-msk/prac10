@@ -128,7 +128,7 @@ class GoalsListScreen extends StatelessWidget {
 
             return Column(
               children: [
-                const GoalsStatsCard(),
+                GoalsStatsCard(store: store),
                 GoalsSearchBar(
                   controller: _searchController,
                   onChanged: () {
@@ -141,6 +141,7 @@ class GoalsListScreen extends StatelessWidget {
                       ? const Center(child: Text('Целей пока нет'))
                       : GoalsListView(
                     goals: goals,
+                    store: store,
                     onDelete: (index) => _deleteGoal(context, index),
                     onTap: (goal) async {
                       await context.push(

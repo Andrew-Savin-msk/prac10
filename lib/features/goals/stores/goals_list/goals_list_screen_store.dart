@@ -21,6 +21,9 @@ abstract class _GoalsListScreenStore with Store {
   @observable
   ObservableList<Goal> goals = ObservableList<Goal>();
 
+  @observable
+  int refreshCounter = 0;
+
   @computed
   bool get hasGoals => goals.isNotEmpty;
 
@@ -35,6 +38,7 @@ abstract class _GoalsListScreenStore with Store {
     _applyFilter();
   }
 
+  @action
   void _applyFilter() {
     final all = _goalService.goals;
     final q = searchQuery.toLowerCase();
@@ -43,9 +47,8 @@ abstract class _GoalsListScreenStore with Store {
         ? all
         : all.where((g) => g.title.toLowerCase().contains(q)).toList();
 
-    goals
-      ..clear()
-      ..addAll(filtered);
+    goals = ObservableList<Goal>.of(filtered);
+    refreshCounter++;
   }
 
   @action

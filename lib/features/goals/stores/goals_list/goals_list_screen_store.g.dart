@@ -53,6 +53,24 @@ mixin _$GoalsListScreenStore on _GoalsListScreenStore, Store {
     });
   }
 
+  late final _$refreshCounterAtom = Atom(
+    name: '_GoalsListScreenStore.refreshCounter',
+    context: context,
+  );
+
+  @override
+  int get refreshCounter {
+    _$refreshCounterAtom.reportRead();
+    return super.refreshCounter;
+  }
+
+  @override
+  set refreshCounter(int value) {
+    _$refreshCounterAtom.reportWrite(value, super.refreshCounter, () {
+      super.refreshCounter = value;
+    });
+  }
+
   late final _$_GoalsListScreenStoreActionController = ActionController(
     name: '_GoalsListScreenStore',
     context: context,
@@ -83,6 +101,18 @@ mixin _$GoalsListScreenStore on _GoalsListScreenStore, Store {
   }
 
   @override
+  void _applyFilter() {
+    final _$actionInfo = _$_GoalsListScreenStoreActionController.startAction(
+      name: '_GoalsListScreenStore._applyFilter',
+    );
+    try {
+      return super._applyFilter();
+    } finally {
+      _$_GoalsListScreenStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void deleteByFilteredIndex(int index) {
     final _$actionInfo = _$_GoalsListScreenStoreActionController.startAction(
       name: '_GoalsListScreenStore.deleteByFilteredIndex',
@@ -99,6 +129,7 @@ mixin _$GoalsListScreenStore on _GoalsListScreenStore, Store {
     return '''
 searchQuery: ${searchQuery},
 goals: ${goals},
+refreshCounter: ${refreshCounter},
 hasGoals: ${hasGoals}
     ''';
   }

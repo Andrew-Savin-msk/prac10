@@ -68,13 +68,11 @@ abstract class _GoalDetailScreenStore with Store {
 
     final nowCompleted = goal.isCompleted;
 
-    // Проверяем, перешла ли цель в состояние "выполнена"
     if (!wasCompleted && nowCompleted) {
       _achievementService.onGoalCompleted(_goalService.goals);
       _logService.logGoalCompleted(goal.title);
     }
 
-    // Обновляем ачивки при любом изменении прогресса
     _achievementService.onGoalUpdated(_goalService.goals);
   }
 
@@ -83,5 +81,11 @@ abstract class _GoalDetailScreenStore with Store {
     if (goal == null) return;
 
     goal.subtasks = subtasks.toList();
+    
+    final allGoals = _goalService.goals;
+    final goalIndex = allGoals.indexOf(goal);
+    if (goalIndex != -1) {
+      allGoals[goalIndex].subtasks = List<Subtask>.from(subtasks);
+    }
   }
 }
