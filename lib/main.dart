@@ -15,9 +15,7 @@ void main() {
   GetIt.I.registerLazySingleton<ActivityLogService>(() => ActivityLogService());
   GetIt.I.registerLazySingleton<FocusSessionService>(() => FocusSessionService());
   GetIt.I.registerLazySingleton<TipsService>(() => TipsService());
-  GetIt.I.registerLazySingleton<SupportService>(
-    () => SupportService(),
-  );
+  GetIt.I.registerLazySingleton<SupportService>(() => SupportService());
   GetIt.I.registerSingleton<GoalService>(GoalService());
   runApp(const MyApp());
 }
